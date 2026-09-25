@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kalyan Care Foundation — Registered NGO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@500;600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF7EA; --bg-alt:#FFFFFF; --ink:#20211D; --soft:#5E5A4E;
+    --marigold:#12539B; --marigold-dark:#0C3E76; --maroon:#0A2F57; --maroon-light:#3D8F2F;
+    --green:#3D8F2F; --orange:#ECA431; --red:#E12526;
+    --border:rgba(18,45,60,.12); --shadow:0 24px 48px -28px rgba(18,45,60,.28);
+    box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#171A15; --bg-alt:#20241E; --ink:#F1EFE6; --soft:#B9C2B4;
+      --border:rgba(241,239,230,.12); --shadow:0 24px 48px -28px rgba(0,0,0,.6); --maroon-light:#7FC26B;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#171A15; --bg-alt:#20241E; --ink:#F1EFE6; --soft:#B9C2B4;
+    --border:rgba(241,239,230,.12); --shadow:0 24px 48px -28px rgba(0,0,0,.6); --maroon-light:#7FC26B;
+  }
+  *{box-sizing:inherit}
+  html{scroll-behavior:smooth; scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Karla',system-ui,-apple-system,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Petrona',Georgia,serif; margin:0 0 .5em; font-weight:600; line-height:1.15; color:var(--ink)}
+  p{margin:0 0 1em; color:var(--soft); max-width:62ch}
+  a{color:inherit}
+  img,svg{max-width:100%; display:block}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px}
+  section{padding:88px 0}
+  @media(max-width:640px){section{padding:56px 0}}
+
+  header{position:sticky; top:0; top:env(safe-area-inset-top,0px); z-index:20; background:var(--bg); border-bottom:1px solid var(--border); backdrop-filter:blur(6px)}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1120px; margin:0 auto}
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Petrona',serif; font-weight:600; font-size:1.15rem; text-decoration:none}
+  .brand img{width:38px; height:38px; flex:none; object-fit:contain}
+  .brand-text{display:flex; flex-direction:column; line-height:1.15}
+  .brand-text small{font-family:'Karla',sans-serif; font-weight:400; font-size:.68rem; color:var(--soft)}
+  nav.links{display:flex; gap:28px; font-size:.95rem}
+  nav.links a{text-decoration:none; color:var(--soft); transition:color .2s}
+  nav.links a:hover{color:var(--ink)}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border-radius:8px; font-weight:600; font-size:.95rem; text-decoration:none; border:1px solid transparent; cursor:pointer}
+  .btn-primary{background:var(--marigold); color:#FFFFFF}
+  .btn-primary:hover{background:var(--marigold-dark)}
+  .btn-ghost{border-color:var(--border); color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--soft)}
+  .btn:focus-visible{outline:2px solid var(--marigold); outline-offset:2px}
+  .menu-toggle{display:none; background:none; border:none; color:var(--ink); font-size:1.6rem; cursor:pointer}
+  .motto{font-style:italic; font-size:.92rem; margin-top:18px}
+
+  .hero .wrap{display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; padding-top:24px}
+  .hero h1{font-size:clamp(2.1rem,4.2vw,3.1rem); max-width:14ch}
+  .hero p.lead{font-size:1.08rem; max-width:46ch}
+  .badge{display:inline-flex; align-items:center; gap:8px; font-size:.82rem; color:var(--maroon-light); border:1px solid var(--border); padding:6px 12px; border-radius:100px; margin-bottom:22px}
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:8px}
+  .hero-art{position:relative}
+  .hero-art svg{width:100%; height:auto}
+  @media(max-width:860px){.hero .wrap{grid-template-columns:1fr; text-align:left} .hero-art{order:-1; max-width:280px; margin:0 auto 8px}}
+
+  .section-head{max-width:56ch; margin-bottom:40px}
+  .section-head p{margin:0}
+
+  .programs .row{display:grid; grid-template-columns:.4fr 1fr; gap:36px; align-items:start; padding:36px 0; border-top:1px solid var(--border)}
+  .programs .row:last-child{border-bottom:1px solid var(--border)}
+  .programs .row:nth-child(even){grid-template-columns:1fr .4fr; }
+  .programs .row:nth-child(even) .icon{order:2}
+  .icon{width:56px; height:56px; border-radius:14px; background:var(--bg-alt); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--maroon-light)}
+  .icon svg{width:26px; height:26px}
+  .programs h3{font-size:1.4rem; margin-bottom:8px}
+  @media(max-width:640px){.programs .row, .programs .row:nth-child(even){grid-template-columns:1fr} .programs .row:nth-child(even) .icon{order:0}}
+
+  .how{background:var(--bg-alt); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; counter-reset:step}
+  .step{position:relative; padding-left:52px}
+  .step::before{counter-increment:step; content:counter(step); position:absolute; left:0; top:0; width:36px; height:36px; border-radius:50%; background:var(--marigold); color:#FFFFFF; font-weight:700; font-family:'Petrona',serif; display:flex; align-items:center; justify-content:center; font-size:1rem}
+  .step h3{font-size:1.1rem; margin-bottom:6px}
+  .step p{margin:0; font-size:.96rem}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+
+  .garland{width:100%; height:34px; color:var(--marigold); opacity:.7}
+
+  .cta-band{background:var(--maroon); color:#F6E9DD}
+  .cta-band h2{color:#F6E9DD}
+  .cta-band p{color:#E3C9BC; max-width:50ch}
+  .cta-band .wrap{display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap}
+
+  footer{padding:48px 0; font-size:.9rem}
+  .foot-wrap{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap}
+  .foot-links{display:flex; gap:22px; flex-wrap:wrap}
+  .foot-links a{text-decoration:none; color:var(--soft); display:inline-flex; align-items:center; gap:6px}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-links svg{width:18px; height:18px}
+  footer .fine{color:var(--soft); margin-top:18px; font-size:.85rem}
+
+  @media(prefers-reduced-motion:no-preference){
+    .reveal{opacity:0; transform:translateY(14px); animation:rise .7s ease forwards}
+    .reveal:nth-child(2){animation-delay:.12s}
+    .reveal:nth-child(3){animation-delay:.22s}
+    @keyframes rise{to{opacity:1; transform:none}}
+  }
+
+  @media(max-width:760px){
+    nav.links{position:fixed; inset:auto 0 0 0; top:calc(64px + env(safe-area-inset-top,0px)); background:var(--bg); flex-direction:column; padding:20px 24px; border-top:1px solid var(--border); display:none; gap:18px}
+    nav.links.open{display:flex}
+    .menu-toggle{display:block}
+    .nav .btn-primary{display:none}
+    .brand-text small{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#top">
+      <img src="data:image/png;base64,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" alt="Kalyan Care Foundation logo">
+      <span class="brand-text">Kalyan Care Foundation<small>Together for a Better Tomorrow</small></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#how">How it works</a>
+      <a href="#involved">Get involved</a>
+    </nav>
+    <a class="btn btn-primary" data-wa data-msg="Hi Kalyan Care Foundation! I'd like to know more.">Message us</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          Registered NGO
+        </span>
+        <h1>Every birthday can feed someone else too.</h1>
+        <p class="lead">Kalyan Care Foundation turns everyday celebrations into meals for people who need them — and looks out for the strays who wait outside our doors too.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" data-wa data-msg="Hi Kalyan Care Foundation! I'd like to know more.">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
+            Message us on WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#programs">See our programs</a>
+        </div>
+        <p class="motto">A small help, a big smile.</p>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="200" cy="190" r="170" fill="var(--marigold)" opacity=".12"/>
+          <circle cx="200" cy="190" r="128" fill="var(--maroon)" opacity=".08"/>
+          <path d="M110 220 Q110 288 200 288 Q290 288 290 220 Z" fill="var(--orange)"/>
+          <ellipse cx="200" cy="220" rx="90" ry="15" fill="#C6801F"/>
+          <path d="M165 186c-11-18 8-30-2-52" stroke="var(--soft)" stroke-width="5" fill="none" stroke-linecap="round" opacity=".45"/>
+          <path d="M200 186c-11-18 8-30-2-52" stroke="var(--soft)" stroke-width="5" fill="none" stroke-linecap="round" opacity=".45"/>
+          <path d="M235 186c-11-18 8-30-2-52" stroke="var(--soft)" stroke-width="5" fill="none" stroke-linecap="round" opacity=".45"/>
+          <path d="M200 96c-10-17-38-17-44 4-6 21 44 50 44 50s50-29 44-50c-6-21-34-21-44-4Z" fill="var(--red)"/>
+          <g transform="translate(70,300) scale(.85)" fill="var(--soft)" opacity=".55">
+            <circle cx="0" cy="18" r="7"/><circle cx="17" cy="9" r="6"/><circle cx="-17" cy="9" r="6"/><circle cx="0" cy="-8" r="8"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap section-head">
+      <h2>Who we are</h2>
+      <p>Kalyan Care Foundation is a registered non-profit working on the ground with a simple belief: care doesn't need a grand occasion. A birthday, an ordinary evening, an empty bowl outside a shop — any of these is reason enough to show up. We run small, consistent drives that turn ordinary moments into meals, and we share every one of them so you can see exactly where your support goes.</p>
+    </div>
+  </section>
+
+  <section id="programs" class="programs">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Three ways we show up</h2>
+        <p>Each one started as a single act, and became something we now do regularly.</p>
+      </div>
+
+      <div class="row reveal">
+        <div class="icon" style="color:var(--orange)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 12h18"/><path d="M12 8v13"/><path d="M12 8c-1.5-4-6-4-6-1 0 1.6 2 1 6 1Z"/><path d="M12 8c1.5-4 6-4 6-1 0 1.6-2 1-6 1Z"/></svg>
+        </div>
+        <div>
+          <h3>Birthday Meals</h3>
+          <p>On someone's birthday, we deliver home-style meals to people who need them most, along with a personal birthday message. It turns one person's celebration into another person's good day — something we've shared often enough now that it's become one of our most-watched reels.</p>
+        </div>
+      </div>
+
+      <div class="row reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="7" cy="8" r="2.1"/><circle cx="12" cy="6" r="2.1"/><circle cx="17" cy="8" r="2.1"/><path d="M12 11c-3.5 0-6 2.4-6 5.2 0 1.9 1.5 3.3 3.4 3.3.9 0 1.6-.4 2.6-.4s1.7.4 2.6.4c1.9 0 3.4-1.4 3.4-3.3 0-2.8-2.5-5.2-6-5.2Z"/></svg>
+        </div>
+        <div>
+          <h3>Feed a Soul</h3>
+          <p>Street dogs get hungry too. Feed a Soul is our ongoing drive to put food in front of the strays in our neighbourhoods — regularly, and without waiting to be asked. ₹35 is what it takes to feed one for a day.</p>
+        </div>
+      </div>
+
+      <div class="row reveal">
+        <div class="icon" style="color:var(--red)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.7 8.8 2.4 5 6 5c2 0 3.3 1.1 4 2.2C10.7 6.1 12 5 14 5c3.6 0 5.3 3.8 3.5 7.5C19 17.65 12 21 12 21Z"/></svg>
+        </div>
+        <div>
+          <h3>Donate in Someone's Name</h3>
+          <p>Mark a birthday, an anniversary, or the memory of someone you love by dedicating a donation in their name. We carry it out and let you know it reached someone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="how">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>Getting involved starts with a message — nothing more formal than that.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Message us on WhatsApp</h3><p>Tell us you'd like to get involved, whatever that means to you.</p></div>
+        <div class="step"><h3>Tell us the occasion</h3><p>A birthday, a dedication, a drive for the strays, or just because.</p></div>
+        <div class="step"><h3>We deliver, and show you</h3><p>You'll see it happen — often the same way we share it, through a reel.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="involved" class="cta-band">
+    <div class="wrap">
+      <div>
+        <h2>Be part of the next one.</h2>
+        <p>Every drive starts with someone reaching out. Message us to sponsor a meal, dedicate a donation, or just ask how you can help.</p>
+      </div>
+      <a class="btn btn-primary" data-wa data-msg="Hi Kalyan Care Foundation! I'd like to get involved.">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
+        Message us on WhatsApp
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-wrap">
+    <div>
+      <strong>Kalyan Care Foundation</strong>
+      <div class="fine">Registered NGO</div>
+    </div>
+    <div class="foot-links">
+      <a href="https://www.instagram.com/kalyan_care_foundation" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        Instagram
+      </a>
+      <a data-wa data-msg="Hi Kalyan Care Foundation!">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const WHATSAPP_NUMBER = '919695413866'; // TODO: replace with the foundation's real WhatsApp number
+  document.querySelectorAll('[data-wa]').forEach(el=>{
+    const msg = encodeURIComponent(el.dataset.msg || "Hi Kalyan Care Foundation!");
+    el.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    el.target = '_blank'; el.rel = 'noopener';
+  });
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', ()=>{
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+    links.classList.remove('open'); toggle.setAttribute('aria-expanded', false);
+  }));
+</script>
+</body>
+</html>
